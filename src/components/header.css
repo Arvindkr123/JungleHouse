@@ -1,0 +1,13 @@
+.heading {
+  color: black;
+  text-align: right;
+  padding: 32px;
+  border-bottom: 3px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+
+.jhlogo{
+    width:100px;
+}
