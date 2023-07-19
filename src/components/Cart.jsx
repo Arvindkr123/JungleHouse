@@ -1,11 +1,12 @@
 import React from 'react'
+import './cart.css'
 
 const Cart = () => {
     const monstera_price = 8;
     const ivy_price = 10;
     const bunch_price = 15;
     return (
-        <div>
+        <div className='jh-cart'>
             <ul>
                 <li>Monstera Price {monstera_price}$</li>
                 <li>Ivy Price {ivy_price}$</li>
