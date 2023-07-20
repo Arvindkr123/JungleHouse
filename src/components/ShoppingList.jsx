@@ -1,23 +1,46 @@
 import React from 'react'
+import { plantList } from '../data/plantList';
+import CareScale from './CareScale';
+import PlantItem from './PlantItem';
 
-const plantList = [
-    'Monstera',
-    'Ficus Lyrata',
-    'Silver Pothos',
-    'Yucca',
-    'Palm'
-]
-
+const categoryList = [];
 
 const ShoppingList = () => {
+    plantList.forEach((plant) => {
+        if (!categoryList.includes(plant.category)) {
+            categoryList.push(plant.category)
+        }
+    })
     return (
-        <ul>
-            {
-                plantList.map((plant, i) => {
-                    return <li key={i}>{plant}</li>
-                })
-            }
-        </ul>
+        <div>
+            <ul>
+                {
+                    categoryList.map((cat) => {
+                        return <li key={cat.id}>{cat}</li>
+                    })
+                }
+            </ul>
+            <ul>
+                {
+                    plantList.map((plant) => {
+                        return (<li key={plant.id}>
+                            {plant.name.toUpperCase()} : {plant.isBestSale && '🔥'}
+                        </li>)
+                    })
+                }
+            </ul>
+            <ul>
+                {
+                    plantList.map((plant) => {
+                        return (<li key={plant.id}>
+                            <PlantItem name={plant.name} id={plant.id} light={plant.light} water={plant.water} />
+                        </li>)
+                    })
+                }
+            </ul>
+
+
+        </div>
     )
 }
 
